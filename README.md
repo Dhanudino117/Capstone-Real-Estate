@@ -3,7 +3,8 @@
 
 ### 1.1 Overview
 
-The Full-Stack Real Estate Web Application is a web-based platform that enables users to list, search, and manage real estate properties. Built using the MERN stack. it provides a dynamic and responsive interface for users to browse listings, communicate with sellers, and manage their profiles efficiently.
+The Full-Stack Real Estate Web Application is a web-based platform that enables users to list,
+ search, and manage real estate properties. Built using the MERN stack. it provides a dynamic and responsive interface for users to browse listings, communicate with sellers, and manage their profiles efficiently.
 
 ### 1.2 Objective
 
