@@ -5,6 +5,8 @@ import About from './Pages/About'
 import Contacts from './Pages/Contacts'
 import Testimonials from './Pages/Testimonials'
 import Header from './Components/Header'
+import ProfilePage from './Pages/ProfilePage'
+import Properties from './Pages/Properties'
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
       <Route  path='/about' element={<About />} />
       <Route  path='/contact' element={<Contacts />} />  
       <Route  path='/testimonials' element={<Testimonials />} />
+      <Route  path='/profile' element={<ProfilePage/>}/>
+      <Route  path='/properties' element={<Properties/>} />
     </Routes>
     </BrowserRouter>
   )
