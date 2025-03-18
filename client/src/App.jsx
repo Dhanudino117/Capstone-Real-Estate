@@ -1,11 +1,27 @@
-import React from "react";
+import React from 'react'
+import{ BrowserRouter , Routes, Route } from "react-router-dom"
+import Home from './Pages/Home'
+import About from './Pages/About'
+import Contacts from './Pages/Contacts'
+import Testimonials from './Pages/Testimonials'
+import Header from './Components/Header'
+import ProfilePage from './Pages/ProfilePage'
+import Properties from './Pages/Properties'
 
 const App = () => {
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <h1 className="text-5xl font-bold underline item-center justify-center flex ">Dhanush</h1>
-    </div>
-  );
-};
+    <BrowserRouter>
+    <Header/>
+    <Routes>
+      <Route  path='/' element={<Home />} />
+      <Route  path='/about' element={<About />} />
+      <Route  path='/contact' element={<Contacts />} />  
+      <Route  path='/testimonials' element={<Testimonials />} />
+      <Route  path='/profile' element={<ProfilePage/>}/>
+      <Route  path='/properties' element={<Properties/>} />
+    </Routes>
+    </BrowserRouter>
+  )
+}
 
-export default App;
+export default App
