@@ -9,12 +9,12 @@ const HomePage = () => {
     <div className="w-full min-h-screen bg-gray-100">
       {/* Hero Section */}
       <div className="text-center py-16 bg-white ">
-        <h1 className="text-5xl font-bold leading-normal font-[sen] text-black ">
+        <h1 className="sm:text-5xl font-bold leading-normal font-[sen] text-black text-2xl">
           Home Is Where Your
           <br />
           Story Begins.
         </h1>
-        <p className="text-gray-800 mt-4">
+        <p className="text-gray-800 mt-4 text-xs md:">
           Unlock your dream home explore endless possibilities with
           <br />
           <span className="text-blue-600 font-semibold">Housora</span>- Your
@@ -31,7 +31,7 @@ const HomePage = () => {
         </div>
 
         <img
-          className="w-full object-cover md:h-[565px]"
+          className="w-full object-cover md:h-[565px] flex justify-center items-center"
           src="https://cdn.pixabay.com/photo/2016/11/29/03/53/house-1867187_1280.jpg"
         />
       </div>
@@ -54,8 +54,10 @@ const HomePage = () => {
         </div>
       </div>
 
-      <RealEstatePage />
-
+    <div className="flex items-center justify-center gap-8">
+      <RealEstatePage/>
+    </div>
+     
       <div className="text-center p-20 pt-40">
         <button className="px-2 py-1 bg-blue-600 text-white text-center rounded">
           Why Choose Us

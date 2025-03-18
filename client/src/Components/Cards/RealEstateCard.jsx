@@ -37,7 +37,7 @@ const propertyData = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1601689266752-211fe93008d3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://media.istockphoto.com/id/1487139529/photo/mormon-row-in-jackson-hole-wyoming-on-a-partially-cloudy-day.jpg?s=612x612&w=0&k=20&c=IUvSTUUt_q7egFyPAmAqdfwfKtORHRS5VQzJjuMJu10=",
     title: "Hill View Retreat",
     priceRange: "₹1.2Cr to ₹3.5Cr",
     location: "Lonavala, Maharashtra",
@@ -54,11 +54,11 @@ const propertyData = [
 ];
 
 const RealEstatePage = () => {
+  <h1 className="text-3xl font-medium  text-center mb-6 ">
+    Featured Properties
+  </h1>;
   return (
-    <div className="p-8 ml-10 mr-10">
-      <h1 className="text-3xl font-medium  text-center mb-6">
-        Featured Properties
-      </h1>
+    <div className="p-8 flex justify-center gap-10 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {propertyData.map((property, index) => (
           <div
