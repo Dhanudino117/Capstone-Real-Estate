@@ -9,9 +9,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Brand Section */}
         <div>
-          <h2 className="text-2xl font-bold">Housora</h2>
+          <h2 className="text-2xl font-bold">Havenquix</h2>
           <p className="mt-3 text-gray-600">
-            Discover your perfect space with Housora. We connect people with properties
+            Discover your perfect space with Havenquix. We connect people with properties
             that match their lifestyle and aspirations.
           </p>
           {/* Social Icons */}
@@ -62,7 +62,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="text-center text-gray-600 text-sm mt-10 border-t    pt-4">
-        © 2025 Housora. All rights reserved.
+        © 2025 Havenquix. All rights reserved.
       </div>
     </footer>
   );
