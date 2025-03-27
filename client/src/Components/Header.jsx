@@ -14,7 +14,7 @@ const Header = () => {
       >
         <FaHome className="text-2xl mr-2 text-blue-600 " />
         <span className="text-xl text-black hover:text-blue-700 font-bold">
-          Havenquix{" "}
+          Housora
         </span>
       </Link>
 
