@@ -15,7 +15,7 @@ const testimonials = [
     role: "Real Estate Investor",
     review:
       "I've worked with many agencies, but DwellHub stands out. Their attention to detail and customer support are outstanding. They helped me secure prime real estate investments.",
-    rating: 5,
+    rating: 4,
     image: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
