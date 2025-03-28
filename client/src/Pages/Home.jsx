@@ -17,7 +17,7 @@ const HomePage = () => {
         <p className="text-gray-800 mt-4 text-xs md:">
           Unlock your dream home explore endless possibilities with
           <br />
-          <span className="text-blue-600 font-semibold">Housora</span>- Your
+          <span className="text-blue-600 font-semibold">Havenquix</span> - Your
           premier estate destination
         </p>
       </div>

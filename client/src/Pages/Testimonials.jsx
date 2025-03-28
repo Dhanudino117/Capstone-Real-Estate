@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import Footer from "../Components/Footer";
 
 const testimonials = [
   {
@@ -99,17 +100,21 @@ const testimonials = [
     rating: 4,
     image: "https://randomuser.me/api/portraits/women/33.jpg",
   },
-  
 ];
 
 const Testimonials = () => {
   return (
     <div className="min-h-screen flex flex-col items-center  p-6">
-      <button className="p-2 bg-blue-600 text-white rounded mb-10">Client Stories</button>
+      <button className="p-2 bg-blue-600 text-white rounded mb-10">
+        Client Stories
+      </button>
       <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
         What Our Clients Say
       </h2>
-        <p>Hear about the experiences of homeowners who found their perfect match with us.</p>
+      <p>
+        Hear about the experiences of homeowners who found their perfect match
+        with us.
+      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-20">
         {testimonials.map((testimonial, index) => (
           <div
@@ -147,6 +152,7 @@ const Testimonials = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };
