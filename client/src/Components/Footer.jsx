@@ -11,8 +11,7 @@ const Footer = () => {
         <div>
           <h2 className="text-2xl font-bold">Havenquix</h2>
           <p className="mt-3 text-gray-600">
-            Discover your perfect space with Havenquix. We connect people with
-            properties that match their lifestyle and aspirations.
+
           </p>
           {/* Social Icons */}
           <div className="flex space-x-4 mt-4 text-gray-500">

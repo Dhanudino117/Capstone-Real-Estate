@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import FeaturesSection from "../Components/Cards/FeaturesSection";
 import RealEstatePage from "../Components/Cards/RealEstateCard";
 import TestimonialsPage from "../Components/Cards/TestimonialsPage";
-import Footer from "../Components/Footer";
+import Footer from '../Components/Footer'
 
 const HomePage = () => {
   return (
@@ -17,7 +17,7 @@ const HomePage = () => {
         <p className="text-gray-800 mt-4 text-xs md:">
           Unlock your dream home explore endless possibilities with
           <br />
-          <span className="text-blue-600 font-semibold">Housora</span>- Your
+          <span className="text-blue-600 font-semibold">Havenquix</span> - Your
           premier estate destination
         </p>
       </div>
@@ -54,10 +54,10 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-8">
-        <RealEstatePage />
-      </div>
-
+    <div className="flex items-center justify-center gap-8">
+      <RealEstatePage/>
+    </div>
+     
       <div className="text-center p-20 pt-40">
         <button className="px-2 py-1 bg-blue-600 text-white text-center rounded">
           Why Choose Us
@@ -83,8 +83,8 @@ const HomePage = () => {
           with us.
         </h3>
       </div>
-      <TestimonialsPage />
-      <Footer />
+      <TestimonialsPage/>
+      <Footer/>
     </div>
   );
 };
