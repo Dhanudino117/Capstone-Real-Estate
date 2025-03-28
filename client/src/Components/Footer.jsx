@@ -17,7 +17,6 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="flex space-x-4 mt-4 text-gray-500">
             <a href="https://www.instagram.com/accounts/login/?hl=en">
-
               <FaInstagram className="text-2xl cursor-pointer hover:text-black" />
             </a>
             <a href="https://www.facebook.com/">
