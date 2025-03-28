@@ -30,7 +30,7 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div className="">
-          <h3 className="font-semibold text-lg">Quick Links</h3>
+          <h3 className="font-semibold text-lg">Links</h3>
 
           <ul className="mt-3 space-y-2 text-gray-600">
             <Link to="/" className="cursor-pointer hover:text-black">
