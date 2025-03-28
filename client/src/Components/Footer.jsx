@@ -11,7 +11,7 @@ const Footer = () => {
         <div>
           <h2 className="text-2xl font-bold">Havenquix</h2>
           <p className="mt-3 text-gray-600">
-
+          Discover your perfect space with Housora. We connect people with properties that match their lifestyle and aspirations.
           </p>
           {/* Social Icons */}
           <div className="flex space-x-4 mt-4 text-gray-500">
@@ -34,11 +34,11 @@ const Footer = () => {
           <ul className="mt-3 space-y-2 text-gray-600">
             <Link to="/" className="cursor-pointer hover:text-black">
               Home
-            </Link>{" "}
+            </Link>
             <br />
             <Link to="/about" className="cursor-pointer hover:text-black">
               About Us
-            </Link>{" "}
+            </Link>
             <br />
             <Link
               to="/testimonials"
