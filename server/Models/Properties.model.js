@@ -15,7 +15,7 @@ const PropertySchema = new mongoose.Schema(
     offer: { type: Boolean, required: true },
     location: { type: String, required: true },
     images: { type: Array, required: true },
-    UserRef: { tyoe: String, required: true },
+    UserRef: { type: String, required: true },
   },
   { timestamps: true }
 );
