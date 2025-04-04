@@ -3,14 +3,42 @@ import FeatureCard from "../Components/Cards/FeaturesSection";
 import TestimonialsPage from "../Components/Cards/TestimonialsPage";
 import Footer from "../Components/Footer";
 import { MdOutlinePeopleAlt } from "react-icons/md";
-import { FaShieldAlt } from "react-icons/fa";
+import { FaShieldAlt, FaStar, FaRegStar } from "react-icons/fa";
 import { LuMessageCircle } from "react-icons/lu";
+
+const testimonials = [
+  {
+    name: "Emma Wilson",
+    role: "First-time Home Buyer",
+    review:
+      "Relocating to a new city is stressful, but DwellHub made finding a new home the easiest part of my move. Their virtual tours saved me time, and their local knowledge was invaluable.",
+    rating: 4,
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+  },
+  {
+    name: "Robert Singh",
+    role: "Commercial Property Investor",
+    review:
+      "I was looking to invest in commercial real estate, and DwellHub provided me with excellent opportunities. Their team analyzed market trends, provided detailed reports, and helped me make informed investment decisions. Highly professional and knowledgeable!",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/men/60.jpg",
+  },
+
+  {
+    name: "Ava Mitchell",
+    role: "First-time Home Buyer",
+    review:
+      "Moving to a new city was overwhelming, but DwellHub made house hunting a breeze. Their virtual tours and expert advice helped me find the perfect home without the hassle. The entire process, from viewing to closing, was smooth, and their team was incredibly supportive!",
+    rating: 4,
+    image: "https://randomuser.me/api/portraits/women/47.jpg",
+  },
+];
 
 const About = () => {
   return (
     <>
       <div className="items-center text-center p-20">
-        <h1 className="text-4xl font-bold ">About Havenquix</h1>
+        <h1 className="text-4xl font-bold">About Havenquix</h1>
         <p className="pt-6 text-xl font-base">
           Connecting people with properties they love since 2010
         </p>
@@ -41,12 +69,12 @@ const About = () => {
           <img
             src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG91c2UlMjBrZXl8ZW58MHx8MHx8fDA%3D"
             alt="House and Keys"
-            className="rounded-lg shadow-md w-full object-cover h-50"
+            className="rounded-lg shadow-md w-full object-cover h-48"
           />
         </div>
       </div>
 
-      <section className="items-center flex flex-col justify-center ">
+      <section className="items-center flex flex-col justify-center">
         <h2 className="bg-blue-600 text-white px-4 py-1 rounded-md w-fit text-lg font-semibold">
           Our Values
         </h2>
@@ -74,34 +102,52 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="items-center flex flex-col justify-center">
-        <h2 className="text-xl bg-blue-600 px-3 py-1.5 text-white rounded " >
-          Our Team
-        </h2>
-        <h1 className="py-5 text-xl font-medium">Meet the Expert</h1>
-        <p className="font-base text-center">
-          Our experienced team of real estate professionals is dedicated to
-          providing exceptional service
-        </p>
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden w-64 text-center pt-5">
-          <img
-            src="https://media.istockphoto.com/id/1300972574/photo/millennial-male-team-leader-organize-virtual-workshop-with-employees-online.jpg?s=612x612&w=0&k=20&c=uP9rKidKETywVil0dbvg_vAKyv2wjXMwWJDNPHzc_Ug="
-            alt="Dhanush"
-            className="w-full h-64 object-cover"
-          />
-          <div className="p-4">
-            <h3 className="text-lg font-semibold">Dhanush</h3>
-            <p className="text-gray-500">CEO & Founder</p>
+
+      <div className="text-center pt-10 pb-20">
+        <h1 className="text-xl font-bold">What Our Partners Say</h1>
+        <div className="h-auto flex flex-col items-center p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="max-w-sm p-6 rounded-lg hover:shadow-xl ease-in shadow-md"
+              >
+                {/* Star Rating */}
+                <div className="flex space-x-1 text-yellow-500 text-lg">
+                  {[...Array(5)].map((_, starIndex) =>
+                    starIndex < testimonial.rating ? (
+                      <FaStar key={starIndex} />
+                    ) : (
+                      <FaRegStar key={starIndex} />
+                    )
+                  )}
+                </div>
+
+                {/* Review */}
+                <p className="mt-4 text-gray-600">{testimonial.review}</p>
+
+                {/* User Details */}
+                <div className="flex items-center mt-4">
+                  <img
+                    className="w-12 h-12 rounded-full object-cover"
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                  />
+                  <div className="ml-3">
+                    <h3 className="font-semibold text-gray-900">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-gray-500 text-sm">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
-
-      <div className="text-center pt-10">
-        <h1 className="text-xl font-bold">What Our Partners Say</h1>
-        <TestimonialsPage />
       </div>
 
-      <div className="flex flex-col md:flex-row items-center bg-white p-6 md:p-8 rounded-xl shadow-lg max-w-4xl mx-auto mt-10 w-full">
+      <div className="flex flex-col md:flex-row items-center bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-5xl mx-auto w-full  ">
+        {/* Left Side - Image */}
         <div className="md:w-1/2 mb-6 md:mb-0">
           <img
             src="https://www.shutterstock.com/image-photo/why-choose-us-symbol-concept-600nw-2397518021.jpg"
@@ -109,8 +155,10 @@ const About = () => {
             className="rounded-lg shadow-md w-full"
           />
         </div>
-        <div className="md:w-1/2 md:pl-6">
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg mb-4 font-semibold w-full md:w-auto">
+
+        {/* Right Side - Text Content */}
+        <div className="md:w-1/2 md:pl-8  ">
+          <button className="bg-blue-600 text-white px-4 ml-60 py-2 rounded-lg mb-4 font-semibold">
             Why Choose Us
           </button>
           <h2 className="text-2xl font-bold mb-3">What Sets Us Apart</h2>
@@ -119,7 +167,9 @@ const About = () => {
             built a reputation for excellence, integrity, and exceptional client
             service.
           </p>
-          <div className="space-y-4">
+
+          {/* Key Points */}
+          <div className="">
             <div>
               <h3 className="font-semibold">Unmatched Expertise</h3>
               <p className="text-gray-600">
@@ -132,6 +182,19 @@ const About = () => {
               <p className="text-gray-600">
                 We take the time to understand your unique needs and
                 preferences.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold">Curated Property Selection</h3>
+              <p className="text-gray-600">
+                We carefully evaluate each property to ensure it meets our high
+                standards.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold">Transparent Process</h3>
+              <p className="text-gray-600">
+                We believe in clear communication and no hidden surprises.
               </p>
             </div>
           </div>
