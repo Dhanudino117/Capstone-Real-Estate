@@ -152,7 +152,9 @@ const Testimonials = () => {
           </div>
         ))}
       </div>
-      <Footer />
+      <div className="pt-30">
+        <Footer />
+      </div>
     </div>
   );
 };
