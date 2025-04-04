@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import FeaturesSection from "../Components/Cards/FeaturesSection";
 import RealEstatePage from "../Components/Cards/RealEstateCard";
 import TestimonialsPage from "../Components/Cards/TestimonialsPage";
-import Footer from '../Components/Footer'
+import Footer from "../Components/Footer";
+import { FaHandshake, FaSearch, FaShieldAlt } from "react-icons/fa";
+import FeatureCard from "../Components/Cards/FeaturesSection";
 
 const HomePage = () => {
   return (
@@ -54,10 +55,10 @@ const HomePage = () => {
         </div>
       </div>
 
-    <div className="flex items-center justify-center gap-8">
-      <RealEstatePage/>
-    </div>
-     
+      <div className="flex items-center justify-center gap-8">
+        <RealEstatePage />
+      </div>
+
       <div className="text-center p-20 pt-40">
         <button className="px-2 py-1 bg-blue-600 text-white text-center rounded">
           Why Choose Us
@@ -70,7 +71,26 @@ const HomePage = () => {
         </h3>
       </div>
 
-      <FeaturesSection />
+      <div className="flex flex-col items-center mx-4">
+        <div className="flex flex-col md:flex-row justify-center gap-8 p-6">
+          <FeatureCard
+            icon={FaSearch}
+            title="Curated Selection"
+            description="We carefully evaluate each property to ensure it meets our high standards for quality and value."
+          />
+          <FeatureCard
+            icon={FaShieldAlt}
+            title="Secure Transactions"
+            description="Our platform ensures that all transactions are safe and verified for a hassle-free experience."
+          />
+          <FeatureCard
+            icon={FaHandshake}
+            title="Trusted Partners"
+            description="We collaborate with reliable real estate agents to provide you with the best options available."
+          />
+        </div>
+      </div>
+
       <div className="text-center p-20 pt-40">
         <button className="px-2 py-1 bg-blue-600 text-white text-center rounded">
           Client Stories
@@ -83,11 +103,10 @@ const HomePage = () => {
           with us.
         </h3>
       </div>
-      <TestimonialsPage/>
-      <Footer/>
+      <TestimonialsPage />
+      <Footer />
     </div>
   );
 };
 
 export default HomePage;
-
