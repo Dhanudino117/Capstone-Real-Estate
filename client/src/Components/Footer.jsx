@@ -13,7 +13,7 @@ const Footer = () => {
           <p className="mt-3 text-gray-600">
           Discover your perfect space with Housora. We connect people with properties that match their lifestyle and aspirations.
           </p>
-          {/* Social Icons */}
+          {/* Icons */}
           <div className="flex space-x-4 mt-4 text-gray-500">
             <a href="https://www.instagram.com/accounts/login/?hl=en">
               <FaInstagram className="text-2xl cursor-pointer hover:text-black" />

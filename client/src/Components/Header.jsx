@@ -60,8 +60,9 @@ const Header = () => {
       <button className="md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
+      
+      {/* DropDown */}
 
-      {/* Mobile Navigation (Dropdown) */}
       {isOpen && (
         <nav className="absolute top-14 left-0 w-full bg-blue-700 text-white shadow-md md:hidden">
           <ul className="flex flex-col items-center gap-4 py-4">
