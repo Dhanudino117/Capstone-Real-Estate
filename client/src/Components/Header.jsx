@@ -14,7 +14,7 @@ const Header = () => {
       >
         <FaHome className="text-2xl mr-2 text-blue-600 " />
         <span className="text-xl text-black hover:text-blue-700 font-bold">
-        Havenquix
+          Havenquix
         </span>
       </Link>
 
@@ -60,7 +60,7 @@ const Header = () => {
       <button className="md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
-      
+
       {/* DropDown */}
 
       {isOpen && (
@@ -108,17 +108,19 @@ const Header = () => {
 
       {/* Login & Profile Button */}
       <div className="hidden md:flex items-center gap-5">
-        <Link to="/login">
+        <Link to="/auth-details">
           <span className="text-md text-gray-700 hover:underline transition-colors duration-300 hover:text-[#375DD9]">
             Login
           </span>
         </Link>
+        <Link to={"/profile"} >
         <button
           className="py-1 text-gray-700 bg-white border-2 border-blue-600 px-6 rounded
          hover:bg-blue-600 transition-colors duration-300 hover:text-white"
         >
           Profile
         </button>
+        </Link>
       </div>
     </header>
   );
