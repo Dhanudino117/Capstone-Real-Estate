@@ -1,6 +1,7 @@
 import React from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 
 const testimonials = [
   {
@@ -104,58 +105,61 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center  p-6">
-      <button className="p-2 bg-blue-600 text-white rounded mb-10">
-        Client Stories
-      </button>
-      <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
-        What Our Clients Say
-      </h2>
-      <p>
-        Hear about the experiences of homeowners who found their perfect match
-        with us.
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-20">
-        {testimonials.map((testimonial, index) => (
-          <div
-            key={index}
-            className="max-w-sm p-6  rounded-lg hover:shadow-xl ease-in shadow-md "
-          >
-            {/* Star Rating */}
-            <div className="flex space-x-1 text-yellow-500 text-lg">
-              {[...Array(5)].map((_, starIndex) =>
-                starIndex < testimonial.rating ? (
-                  <FaStar key={starIndex} />
-                ) : (
-                  <FaRegStar key={starIndex} />
-                )
-              )}
-            </div>
+    <>
+      <Header />
+      <div className="min-h-screen flex flex-col items-center  p-6">
+        <button className="p-2 bg-blue-600 text-white rounded mb-10">
+          Client Stories
+        </button>
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
+          What Our Clients Say
+        </h2>
+        <p>
+          Hear about the experiences of homeowners who found their perfect match
+          with us.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-20">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="max-w-sm p-6  rounded-lg hover:shadow-xl ease-in shadow-md "
+            >
+              {/* Star Rating */}
+              <div className="flex space-x-1 text-yellow-500 text-lg">
+                {[...Array(5)].map((_, starIndex) =>
+                  starIndex < testimonial.rating ? (
+                    <FaStar key={starIndex} />
+                  ) : (
+                    <FaRegStar key={starIndex} />
+                  )
+                )}
+              </div>
 
-            {/* Review */}
-            <p className="mt-4 text-gray-600">{testimonial.review}</p>
+              {/* Review */}
+              <p className="mt-4 text-gray-600">{testimonial.review}</p>
 
-            {/* User Details */}
-            <div className="flex items-center mt-4">
-              <img
-                className="w-12 h-12 rounded-full object-cover"
-                src={testimonial.image}
-                alt={testimonial.name}
-              />
-              <div className="ml-3">
-                <h3 className="font-semibold text-gray-900">
-                  {testimonial.name}
-                </h3>
-                <p className="text-gray-500 text-sm">{testimonial.role}</p>
+              {/* User Details */}
+              <div className="flex items-center mt-4">
+                <img
+                  className="w-12 h-12 rounded-full object-cover"
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                />
+                <div className="ml-3">
+                  <h3 className="font-semibold text-gray-900">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-gray-500 text-sm">{testimonial.role}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className="pt-30">
+          <Footer />
+        </div>
       </div>
-      <div className="pt-30">
-        <Footer />
-      </div>
-    </div>
+    </>
   );
 };
 

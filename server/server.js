@@ -2,12 +2,14 @@ import express from "express";
 import dotenv from "dotenv/config";
 import ConnectDb from "./connection/connectDb.js";
 import userRouter from "./routes/user.route.js";
-import authRouter from "./controllers/auth.controller.js";
+import authRouter from "./routes/auth.router.js";
+import cors from "cors";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(cors({ origin: "http://localhost:5173" }));
 ConnectDb();
 
 app.use("/api/user", userRouter);

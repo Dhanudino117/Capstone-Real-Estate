@@ -1,10 +1,10 @@
 import React from "react";
 import FeatureCard from "../Components/Cards/FeaturesSection";
-import TestimonialsPage from "../Components/Cards/TestimonialsPage";
 import Footer from "../Components/Footer";
 import { MdOutlinePeopleAlt } from "react-icons/md";
 import { FaShieldAlt, FaStar, FaRegStar } from "react-icons/fa";
 import { LuMessageCircle } from "react-icons/lu";
+import Header from "../Components/Header";
 
 const testimonials = [
   {
@@ -37,6 +37,7 @@ const testimonials = [
 const About = () => {
   return (
     <>
+      <Header />
       <div className="items-center text-center p-20">
         <h1 className="text-4xl font-bold">About Havenquix</h1>
         <p className="pt-6 text-xl font-base">

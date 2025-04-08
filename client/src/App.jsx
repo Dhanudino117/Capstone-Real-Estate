@@ -4,14 +4,13 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Contacts from "./Pages/Contacts";
 import Testimonials from "./Pages/Testimonials";
-import Header from "./Components/Header";
 import ProfilePage from "./Pages/ProfilePage";
 import Properties from "./Pages/Properties";
+import AuthPage from "./Pages/AuthPage";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -19,6 +18,7 @@ const App = () => {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/properties" element={<Properties />} />
+        <Route path="/auth-details" element={<AuthPage />} />
       </Routes>
     </BrowserRouter>
   );
