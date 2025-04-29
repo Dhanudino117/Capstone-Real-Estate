@@ -3,7 +3,9 @@ import dotenv from "dotenv";
 import ConnectDb from "./connection/connectDb.js";
 import userRouter from "./routes/user.route.js";
 import authRoutes from "./routes/auth.router.js";
+import propertyRoutes from "./routes/propertyRouter.js";
 import cors from "cors";
+
 dotenv.config();
 
 const app = express();
@@ -25,6 +27,8 @@ app.use((error, req, res, next) => {
     message,
   });
 });
+
+app.use("/api", propertyRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is running on the post 5000");
