@@ -6,20 +6,15 @@ export const Signup = async (req, res, next) => {
   const { username, email, password } = req.body;
 
   try {
-    if (!username || username.trim() === "") {
+    if (!username) {
       return res.status(400).json({ message: "Username is required" });
     }
 
-    if (!email || email.trim() === "") {
+    if (!email) {
       return res.status(400).json({ message: "Email is required" });
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return res.status(400).json({ message: "Invalid email format" });
-    }
-
-    if (!password || password.trim() === "") {
+    if (!password) {
       return res.status(400).json({ message: "Password is required" });
     }
 
@@ -34,7 +29,7 @@ export const Signup = async (req, res, next) => {
       return res.status(409).json({ message: "User already exists" });
     }
 
-    const hashedPassword = bcryptjs.hashSync(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
 
     const newUser = new User({
       username,
@@ -58,18 +53,20 @@ export const Login = async (req, res, next) => {
         .status(400)
         .json({ message: "Email and password are required" });
     }
+
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    const isPasswordValid = bcryptjs.compareSync(password, user.password);
+
+    const isPasswordValid = await bcryptjs.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: "Incorrect password" });
     }
+
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1d",
-    });
-
+    })
     res
       .cookie("access_token", token, {
         httpOnly: true,
@@ -79,12 +76,14 @@ export const Login = async (req, res, next) => {
       .status(200)
       .json({
         message: "Login successful",
+        token, // Include the token in the response body
         user: {
           id: user._id,
           email: user.email,
           username: user.username,
         },
       });
+    console.log("Cookie set successfully"); // Debug log
   } catch (error) {
     next(error);
   }

@@ -8,6 +8,7 @@ import signupImg from "../assets/SignIn.png";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios"; // <-- added axios import
 
 const AuthPage = () => {
   const navigate = useNavigate();
@@ -19,13 +20,17 @@ const AuthPage = () => {
     password: "",
   });
 
+  const backendURL = "http://localhost:5000"; // your backend URL here
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const endpoint = isLogin ? "/api/auth/login" : "/api/auth/signup";
+    const endpoint = isLogin
+      ? `${backendURL}/api/auth/login`
+      : `${backendURL}/api/auth/signup`;
 
     const body = isLogin
       ? { email: formData.email, password: formData.password }
@@ -37,33 +42,37 @@ const AuthPage = () => {
 
     setIsLoading(true);
     try {
-      const res = await fetch(endpoint, {
-        method: "POST",
+      const res = await axios.post(endpoint, body, {
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
       });
 
-      const data = await res.json();
       setIsLoading(false);
 
-      if (!res.ok) throw new Error(data.message || "Authentication failed");
-
-      if (data.token) {
-        localStorage.setItem("token", data.token); // Save token for session
+      const data = res.data; 
+      if (isLogin) {
+        if (data.token) {
+          localStorage.setItem("token", data.token);
+          toast.success("Login successful! Redirecting...");
+          setTimeout(() => navigate("/home"), 1500);
+        } else {
+          throw new Error("Login failed: No token received.");
+        }
+      } else {
+        toast.success("Signup successful! Please login.");
+        setIsLogin(true);
+        setFormData({
+          username: "",
+          email: "",
+          password: "",
+        });
       }
-
-      toast.success(
-        `${isLogin ? "Login" : "Signup"} successful! Redirecting...`
-      );
-      setTimeout(() => navigate("/"), 1500);
     } catch (err) {
       setIsLoading(false);
-      const msg = err.message;
+      const msg = err.response?.data?.message || err.message;
 
-      if (msg.toLowerCase().includes("user already exists")) {
-        toast.info("User already exists. Please login.");
-        setIsLogin(true);
-      } else if (msg.toLowerCase().includes("email is required")) {
+      if (msg.toLowerCase().includes("email is required")) {
+        toast.error("Email is required.");
+      } else if (msg.toLowerCase().includes("invalid credentials")) {
         toast.error("Invalid credentials or user does not exist.");
       } else {
         toast.error(msg);
