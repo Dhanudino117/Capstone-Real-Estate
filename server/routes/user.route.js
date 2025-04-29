@@ -1,12 +1,8 @@
 import express from "express";
+import { test } from "../controllers/usercontroller.js";
 
 const router = express.Router();
 
-router.get("/test", (req, res) => {
-  res.send("Hello, Dino! Your server using ES Modules is running 🚀");
-});
-
-
-
+router.get("/test", test);
 
 export default router;

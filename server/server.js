@@ -1,9 +1,10 @@
 import express from "express";
-import dotenv from "dotenv/config";
+import dotenv from "dotenv";
 import ConnectDb from "./connection/connectDb.js";
 import userRouter from "./routes/user.route.js";
-import authRouter from "./routes/auth.router.js";
+import authRoutes from "./routes/auth.router.js";
 import cors from "cors";
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,7 +14,7 @@ app.use(cors({ origin: "http://localhost:5173" }));
 ConnectDb();
 
 app.use("/api/user", userRouter);
-app.use("/api/auth/", authRouter);
+app.use("/api/auth", authRoutes);
 // error handling
 app.use((error, req, res, next) => {
   const statusCode = error.statusCode || 500;
@@ -23,6 +24,10 @@ app.use((error, req, res, next) => {
     statusCode,
     message,
   });
+});
+
+app.get("/", (req, res) => {
+  res.send("Server is running on the post 5000");
 });
 
 app.listen(port, () => {

@@ -1,27 +1,9 @@
 import React, { useState } from "react";
 import { FaHome, FaBars, FaTimes } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const LandingPageHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
-
-  // Check if the user is logged in
-  const isLoggedIn = Boolean(localStorage.getItem("token"));
-
-  const handleHomeClick = (e) => {
-    if (isLoggedIn) {
-      navigate("/home"); // Redirect to /home if logged in
-    } else {
-      e.preventDefault(); // Prevent navigation
-      alert("Please login first to access Home."); // Show login message
-    }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove the token
-    window.location.href = "/auth-details"; // Redirect to login page
-  };
 
   return (
     <header className="sticky top-0 z-50 flex justify-between items-center px-6 py-3 shadow-md bg-white">
@@ -30,7 +12,7 @@ const Header = () => {
         to="/"
         className="flex items-center transition-colors duration-300 hover:text-[#375DD9]"
       >
-        <FaHome className="text-2xl mr-2 text-blue-600" />
+        <FaHome className="text-2xl mr-2 text-blue-600 " />
         <span className="text-xl text-black hover:text-blue-700 font-bold">
           Havenquix
         </span>
@@ -39,15 +21,9 @@ const Header = () => {
       {/* Desktop Navigation */}
       <nav className="hidden md:flex">
         <ul className="flex items-center justify-center gap-x-8">
-          <li>
-            <Link
-              to="/home"
-              onClick={handleHomeClick}
-              className="transition-colors duration-300 hover:text-[#375DD9] hover:underline"
-            >
-              Home
-            </Link>
-          </li>
+          <p>
+            Home
+          </p>
           <li>
             <Link
               to="/about"
@@ -84,18 +60,16 @@ const Header = () => {
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
 
-      {/* Mobile Dropdown */}
+      {/* DropDown */}
+
       {isOpen && (
         <nav className="absolute top-14 left-0 w-full bg-blue-700 text-white shadow-md md:hidden">
           <ul className="flex flex-col items-center gap-4 py-4">
             <li>
               <Link
-                to="/home"
-                onClick={(e) => {
-                  handleHomeClick(e);
-                  setIsOpen(false);
-                }}
-                className="block text-lg transition-colors duration-300 hover:text-gray-300"
+                to="/"
+                className="block text-lg  transition-colors duration-300 hover:text-gray-300"
+                onClick={() => setIsOpen(false)}
               >
                 Home
               </Link>
@@ -131,8 +105,13 @@ const Header = () => {
         </nav>
       )}
 
-      {/* Login & Profile Buttons */}
+      {/* Login & Profile Button */}
       <div className="hidden md:flex items-center gap-5">
+        <Link to="/auth-details">
+          <span className="text-md text-gray-700 hover:underline transition-colors duration-300 hover:text-[#375DD9]">
+            Login
+          </span>
+        </Link>
         <Link to={"/profile"}>
           <button
             className="py-1 text-gray-700 bg-white border-2 border-blue-600 px-6 rounded
@@ -141,15 +120,9 @@ const Header = () => {
             Profile
           </button>
         </Link>
-        <button
-          onClick={handleLogout}
-          className="py-1 text-gray-700 bg-white border-2 border-blue-600 px-6 rounded hover:bg-blue-600 transition-colors duration-300 hover:text-white"
-        >
-          Logout
-        </button>
       </div>
     </header>
   );
 };
 
-export default Header;
+export default LandingPageHeader;
