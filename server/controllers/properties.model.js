@@ -1,6 +1,8 @@
 import Listing from "../Models/Properties.model.js";
 import {validationResult} from 'express-validator'
 
+
+// To get All the properties 
 export const getAllProperties = async (req, res, next) => {
   try {
     const properties = await Listing.find();
