@@ -5,8 +5,9 @@ import {
   createProperty,
   getAllProperties,
 } from "../controllers/properties.model.js";
+import { verifyToken } from "../middleware/verifyToken.js";
 
-router.get("/properties", getAllProperties);
-router.post("/properties", createProperty);
+router.get("/properties", verifyToken, getAllProperties);
+router.post("/properties", verifyToken, createProperty);
 
 export default router;
