@@ -2,6 +2,9 @@ import User from "../Models/User.model.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+
+// Data base read and write signup
+
 export const Signup = async (req, res, next) => {
   const { username, email, password } = req.body;
 
