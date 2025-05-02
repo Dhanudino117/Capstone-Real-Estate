@@ -15,6 +15,8 @@ export const getAllProperties = async (req, res, next) => {
   }
 };
 
+// Database read-write - createproperty
+
 export const createProperty = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
