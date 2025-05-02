@@ -4,10 +4,11 @@ const router = express.Router();
 import {
   createProperty,
   getAllProperties,
+  updateProperty,
 } from "../controllers/properties.model.js";
-import { verifyToken } from "../middleware/verifyToken.js";
 
-router.get("/properties", verifyToken, getAllProperties);
-router.post("/properties", verifyToken, createProperty);
+router.get("/properties",  getAllProperties);
+router.post("/properties",  createProperty);
+router.put('/update/:id', updateProperty )
 
 export default router;

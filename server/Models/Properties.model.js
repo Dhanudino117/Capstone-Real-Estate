@@ -15,11 +15,6 @@ const PropertySchema = new mongoose.Schema(
     offer: { type: Boolean, required: true },
     location: { type: String, required: true },
     images: { type: Array, required: true },
-    userRef: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
   },
   { timestamps: true }
 );
