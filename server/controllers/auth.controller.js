@@ -5,6 +5,9 @@ import jwt from "jsonwebtoken";
 
 // Data base read and write signup
 
+
+// Username and password authentication ==>
+
 export const Signup = async (req, res, next) => {
   const { username, email, password } = req.body;
 
@@ -29,7 +32,7 @@ export const Signup = async (req, res, next) => {
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(409).json({ message: "User already exists" });
+      return res.status(403).json({ message: "User already exists" });
     }
 
     const hashedPassword = await bcryptjs.hash(password, 10);
@@ -46,6 +49,9 @@ export const Signup = async (req, res, next) => {
     next(error);
   }
 };
+
+
+// Username and password Login authentication ==>
 
 export const Login = async (req, res, next) => {
   const { email, password } = req.body;
