@@ -1,6 +1,7 @@
 import User from "../Models/User.model.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { OAuth2Client } from "google-auth-library";
 
 
 // Data base read and write signup
@@ -159,5 +160,43 @@ export const updateUser = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
+  }
+};
+
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+export const googleAuth = async (req, res) => {
+  const { token } = req.body;
+
+  try {
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    const { sub, email, name } = payload;
+
+    // Check if the user exists in the database
+    let user = await User.findOne({ googleId: sub });
+    if (!user) {
+      // Create a new user if not found
+      user = new User({
+        googleId: sub,
+        email,
+        username: name,
+      });
+      await user.save();
+    }
+
+    // Generate a JWT token for the user
+    const jwtToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
+
+    res.status(200).json({ token: jwtToken, user });
+  } catch (error) {
+    res.status(400).json({ message: "Invalid Google token", error });
   }
 };
